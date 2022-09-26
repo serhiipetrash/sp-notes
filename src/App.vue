@@ -1,19 +1,21 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-
-</script>
-
 <template>
+  <NavBar />
 
-  <RouterLink to="/" class="button">Home</RouterLink>
-  <RouterLink to="/about" class="button">About</RouterLink>
-
-  <RouterView />
+  <div class="container is-max-desktop px-2 py-4">
+    <RouterView />
+  </div>
 
 </template>
 
+<script setup>
+import { RouterView } from 'vue-router'
+import NavBar from './components/Layout/NavBar.vue';
+
+
+</script>
+
 <style>
-/* @import 'bulma/css/bulma.min.css'; */
+
 </style>
 
 
