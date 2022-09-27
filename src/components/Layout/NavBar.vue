@@ -6,15 +6,26 @@
         <div class="navbar-item is-size-4 is-family-monospace">
           sp-notes
         </div>
-        <a :class="{'is-active' : showMobileNav }" @click.prevent="showMobileNav = !showMobileNav" class="navbar-burger"
-          aria-expanded="false" aria-label="menu" data-target="navbarBasicExample" role="button">
+          <a
+            :class="{'is-active' : showMobileNav }"
+            @click.prevent="showMobileNav = !showMobileNav"
+            class="navbar-burger"
+            aria-expanded="false"
+            aria-label="menu"
+            data-target="navbarBasicExample"
+            role="button"
+          >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
 
-      <div :class="{'is-active' : showMobileNav }" id="navbarBasicExample" class="navbar-menu">
+      <div
+        :class="{'is-active' : showMobileNav }"
+        id="navbarBasicExample"
+        class="navbar-menu"
+      >
         <div class="navbar-start">
 
         </div>
