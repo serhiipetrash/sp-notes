@@ -18,6 +18,11 @@ const router = createRouter({
       path: '/stats',
       name: 'stats',
       component: () => import('../views/ViewNotes.vue')
+    },
+    {
+      path: '/editNote/:id',
+      name: 'edit-note',
+      component: () => import('../views/ViewEditNote.vue')
     }
   ]
 })
