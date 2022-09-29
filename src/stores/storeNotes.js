@@ -6,15 +6,15 @@ export const useStoreNotes = defineStore('storeNotes', {
       notes: [
         {
           id: 'id1',
-          content: 'From PINIA Lorem ipsum dolor sit, amet consectetur adipisicing Lorem ipsum dolor sit, amet consectetur adipisicing Lorem ipsum dolor sit, amet consectetur adipisicing Lorem ipsum dolor sit, amet consectetur adipisicing Lorem ipsum dolor sit, amet consectetur adipisicing '
+          content: 'From ID-1 PINIA Lorem ipsum dolor sit, amet consectetur adipisicing Lorem ipsum dolor sit, amet consectetur adipisicing Lorem ipsum dolor sit, amet consectetur adipisicing Lorem ipsum dolor sit, amet consectetur adipisicing Lorem ipsum dolor sit, amet consectetur adipisicing '
         },
         {
           id: 'id2',
-          content: 'From PINIA repellendus veniam nisi nostrum maiores hic debitis sit beatae, nulla deleniti atque quidem sapiente numquam repellendus veniam nisi nostrum maiores hic debitis sit beatae, nulla deleniti atque quidem sapiente numquam repellendus veniam nisi nostrum maiores hic debitis sit beatae, nulla deleniti atque quidem sapiente numquam'
+          content: 'From ID-2 From PINIA repellendus veniam nisi nostrum maiores hic debitis sit beatae, nulla deleniti atque quidem sapiente numquam repellendus veniam nisi nostrum maiores hic debitis sit beatae, nulla deleniti atque quidem sapiente numquam repellendus veniam nisi nostrum maiores hic debitis sit beatae, nulla deleniti atque quidem sapiente numquam'
         },
         {
           id: 'id3',
-          content: 'From PINIA This is a my shorter note! Yea!'
+          content: 'From ID-3 From PINIA This is a my shorter note! Yea!'
         }
       ]
     }
@@ -34,6 +34,18 @@ export const useStoreNotes = defineStore('storeNotes', {
     
     deleteNote(idToDelete) {
       this.notes = this.notes.filter((note) => { return note.id !== idToDelete })
+    },
+    updateNote(id, content) {
+      let index = this.notes.findIndex(note => note.id === id)
+      this.notes[index].content = content
+    }
+  },
+  getters: {
+    getNoteContent: (state) => {
+     return (id) => {
+      return state.notes.filter((note) => note.id === id)[0].content
+     }
+     
     }
   }
 
