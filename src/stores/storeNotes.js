@@ -10,23 +10,20 @@ export const useStoreNotes = defineStore('storeNotes', {
     return {
       notes: [
         // {
-        //   id: 'id1',
-        //   content: 'From ID-1 PINIA Lorem ipsum dolor sit, amet consectetur adipisicing Lorem ipsum dolor sit, amet consectetur adipisicing Lorem ipsum dolor sit, amet consectetur adipisicing Lorem ipsum dolor sit, amet consectetur adipisicing Lorem ipsum dolor sit, amet consectetur adipisicing '
-        // },
-        // {
         //   id: 'id2',
-        //   content: 'From ID-2 From PINIA repellendus veniam nisi nostrum maiores hic debitis sit beatae, nulla deleniti atque quidem sapiente numquam repellendus veniam nisi nostrum maiores hic debitis sit beatae, nulla deleniti atque quidem sapiente numquam repellendus veniam nisi nostrum maiores hic debitis sit beatae, nulla deleniti atque quidem sapiente numquam'
+        //   content: 'From ID-2 From PINIA repellendus veniam nisi'
         // },
         // {
         //   id: 'id3',
         //   content: 'From ID-3 From PINIA This is a my shorter note! Yea!'
         // }
-      ]
+      ],
+      notesLoaded: false
     }
   },
   actions: {
     async getNotes() {
-
+      this.notesLoaded = false
       onSnapshot(notesCollectionQuery, (querySnapshot) => {
         let notes = []
         querySnapshot.forEach((doc) => {
@@ -37,7 +34,10 @@ export const useStoreNotes = defineStore('storeNotes', {
         }
         notes.push(note)
         })
+        
         this.notes = notes
+        this.notesLoaded = true
+
       })
       
     },
