@@ -61,7 +61,7 @@
 
 <script setup>
 import { ref, computed, reactive } from 'vue';
-import { useStoreAuth } from '../stores/storeAuth';
+import { useStoreAuth } from '@/stores/storeAuth'
 
 const storeAuth = useStoreAuth()
 
@@ -86,7 +86,7 @@ const onSubmit = () => {
       storeAuth.registerUser(credentials)
     }
     else {
-      console.log('Login user with these credentials', credentials);
+      storeAuth.loginUser(credentials)
     }
   }
 }
