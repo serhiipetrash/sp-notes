@@ -10,14 +10,14 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import NavBar from './components/Layout/NavBar.vue';
-import { useStoreNotes } from '@/stores/storeNotes'
+import { useStoreAuth } from '@/stores/storeAuth'
 import { onMounted } from 'vue';
 
-const storeNotes = useStoreNotes()
+const storeAuth = useStoreAuth()
 
 /* mounted */
 onMounted(() => {
-  storeNotes.getNotes()
+  storeAuth.init()
 })
 
 </script>
